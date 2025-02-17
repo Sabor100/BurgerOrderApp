@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+
+{% block title %}Main Menu{% endblock %}
+
+{% block content %}
+    <!-- Welcome customers - -->
+    <div id="front"> 
+        <p>This is my burger branch</p>
+        <p>Please order your burger here!</p>
+    </div>
+    <div id="container">
+        <div id="meny">
+            <title>Menu</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+            <body>
+    <!-- When the customer clicks on the burger type, the information is temporarily saved, -->
+    <!-- the home page switches to the topping page for the customer to continue choosing the toppings and options for the burger.-->
+                <form action="/topping" method = 'POST'>
+                    <div class="w3-container">
+                        <h2>Please Choice Your Burger!</h2>
+                        <!-- Burger menu -->
+                        {% for burger in listBurger %}
+                            <button type="submit" name="burger" value="{{ burger }}">{{ burger|upper }}</button><br>
+                        {% endfor %}
+                    </div>    
+                </form>
+            </body>
+        </div>
+    </div>
+{% endblock %}
