@@ -1,0 +1,3 @@
+[console_scripts]
+customer = BurgerOrderer.app:main
+kitchen = KitchenView.app:main
