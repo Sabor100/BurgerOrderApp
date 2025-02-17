@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Flask App</title>
+    <style>
+        /* Enkel CSS för att formatera sidan */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #79dbff;
+            padding:200px;
+            text-align: center;
+            color: rgba(79, 26, 75, 0.728);
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        footer {
+            background-color: #ddd;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        #meny {
+            background-color: hsl(240, 74%, 76%);
+            padding: 50px;
+        }
+        #container {
+
+            display: flex;
+        }
+        #block_content { 
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+
+<!DOCTYPE html>
+<html lang="en">
+
+</head>
+
+<meta charset="UTF-8">
+<title>Burger Order</title>
+
+<body>
+
+    <header>
+        <h1>Welcome to Free Burger!</h1>
+        <div id="block_content"> 
+            {% block content %}{% endblock %}
+        </div>
+    </header>
+
+    <footer>
+        <p>&copy; 2024 Team 14 - BTH</p>
+    </footer>
+</body>
+</html>
