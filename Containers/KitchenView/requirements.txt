@@ -1,0 +1,4 @@
+Flask==2.2.5          # Specific version of Flask
+pytest==8.3.3         # Specific version of pytest
+pytest-flask==1.2.0   # For pytest integration with Flask applications
+Flask-SQLAlchemy==3.0.5  # SQLAlchemy for handling the SQLite database with Flask
