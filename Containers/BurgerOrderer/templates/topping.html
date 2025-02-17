@@ -1,0 +1,76 @@
+{% extends 'index.html' %}
+
+{% block title %}Topping{% endblock %}
+
+{% block content %}
+    <!-- Welcome customers - -->
+    <h2>Let's perfect your delicious cheese burger!</h2>
+    <form action="/order_done"method = 'POST'>
+
+
+        <!-- Hidden Field for Burger Type -->
+        <input type="hidden" name="burger" value="{{ burger|upper }}" />
+    
+        <!-- Customers can choose options -->
+         <!-- Show the menu with default selected are: Do not add any items, Do not remove any items, No sides, No drinks -->
+        <label for="added_items">Add to burger (optional):</label><br>
+        <select name="added_items" id="added_items">
+            {% for extraItem in listExtraItem %}
+                {% if extraItem == "Do not add any items" %}
+                    <option value="Do not add any items" selected>Do not add any items</option>
+                {% else %}
+                    <option value="{{ extraItem }}">{{ extraItem|upper }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="removed_items">Remove from burger (optional):</label><br>
+        <select name="removed_items" id="removed_items">
+            {% for topping in listTopping %}
+                {% if topping == "Do not remove any items" %}
+                    <option value="Do not remove any items" selected>Do not remove any items</option>
+                {% else %}
+                    <option value="{{ topping }}">{{ topping|upper }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <br>
+        
+        <label for="added_sides">Add a slides (optional):</label><br>
+        <select name="added_sides">
+            {% for sideOption in listSideOption %}
+                {% if sideOption == "No sides" %}
+                    <option value="No sides" selected>No sides</option>
+                {% else %}
+                    <option value="{{ sideOption }}">{{ sideOption|upper }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="drinks">Choose a drink (optional):</label><br>
+        <select name="drinks" id="drinks">
+                {% for drink in listDrink %}
+                    {% if drink == "No drinks" %}
+                        <option value="No drinks" selected>No drinks</option>
+                    {% else %}
+                        <option value="{{ drink }}">{{ drink|upper }}</option>
+                    {% endif %}
+                {% endfor %}
+
+        </select>
+        <br>
+
+        <!-- Submit Button -->
+        <button type="submit">Order Now!</button>
+    </form>
+
+    <!-- Go Back Button-->
+    <button onclick="goHome()">Go Back!</button>
+        <script>
+            function goHome() {
+                window.location.href = '/';  // Return to the home page
+            }
+        </script>
+{% endblock %}
