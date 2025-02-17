@@ -1,0 +1,24 @@
+services:
+  # build docker images, named with customer
+  burgerorderer:
+    image: customer
+    build: ./BurgerOrderer
+    ports:
+      - 8000:8000
+    volumes:
+      - ./MenuStore/orders.db:/app/orders.db
+  
+  # build docker images, named with kitchen
+  kitchenview:
+    image: kitchen
+    build: ./KitchenView
+    ports:
+      - 8001:8001
+    volumes:
+      - ./MenuStore/orders.db:/app/orders.db
+
+# need to start docker before run docker-compose
+# from Terminal , come to Containers, type command to run file docker-compose (skip symbol #):
+# docker-compose up
+# if you have built images before, you need to remove all images that you built with command (skip symbol #)
+  # docker rmi -f customer:latest kitchen:latest && docker-compose up
