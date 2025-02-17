@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block title %}Order done Burger{% endblock %}
+
+{% block content %}
+    <!-- Welcome customers - -->
+    <div id="front"> 
+        <p>This is my burger branch</p>
+        <p>Please order your burger here</p>
+    </div>
+    <div id="container">
+        <div class="w3-container">
+            <!-- The order notification page has been collected - -->
+            <h2>Thanks for your order!</h2>
+            <button onclick="goHome()">Click here if you want to order more!</button>
+            <script>
+                function goHome() {
+                    window.location.href = '/';  // Return to the home page
+                }
+            </script>
+    </div>
+{% endblock %}
