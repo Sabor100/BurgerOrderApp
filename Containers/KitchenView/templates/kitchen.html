@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitchen View</title>
+</head>
+<body>
+    <!-- Show the orders with detail of: type of burger, sides, toppings and drink. -->
+    <div id="container">
+        <div id="meny">
+    <h1>Orders today</h1>
+    
+    <ul>
+        {% for item in result %}
+            <li>Order ID {{ item[0] }} : (Order content: Burger: {{ item[1] | upper }}) : (Options: {{ item[4]|lower }} {{ item[3]|lower }} : {{ item[2] }} | {{ item[7] | lower  }}
+                {{ item[6] | lower }} : {{ item[5] }} | {{ item[10] | lower }} {{ item[9] | lower }} : {{ item[8] }} | 
+                {{ item[13] | lower }} {{ item[12] | lower }} : {{ item[11] }})</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Button to delete all orders -->
+    <form action="{{ url_for('delete_orders') }}" method="post" onsubmit="return confirm('Are you sure you want to delete all orders?');">
+        <button type="submit">Remove All Orders</button>
+    </form>
+
+</body>
+</html>
